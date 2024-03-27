@@ -1,0 +1,7 @@
+.gitignore~
+*.un~
+*.h~
+*.c~
+*.exe
+test.cpp*
+*.cpp~
