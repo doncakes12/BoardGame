@@ -1,4 +1,4 @@
-#include "piece.h"
+#include "../headers/piece.h"
 
 
 Piece::Piece() : color("occupied") {}
