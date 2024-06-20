@@ -26,16 +26,18 @@ void Board::updatePieceOnTile(Piece* p,unsigned int rank,unsigned int file) {
     return;
 }
 
+
+//currently just prints board ( each 'title' is two char wide important to keep in mind moving forward)
 const void Board::printBoard() {
     std::string edge = "__________________";
     std::cout << edge << "\n" << std::endl;
     for(unsigned int i = 0; i < 8; i++) {
-	std::cout << "|";
-	for(unsigned int j = 0; j < 8; j++){
-	    //Alternates 'red/positive and black/negative'
-	    (((i + j) % 2) == 0) ? std::cout << "+ " : std::cout << "- ";
-	}
-	std::cout << "|" << std::endl;
+    	std::cout << "|";
+	    for(unsigned int j = 0; j < 8; j++){
+	        //Alternates 'red/positive and black/negative'
+	        (((i + j) % 2) == 0) ? std::cout << "  " : std::cout << char(219) << char(219);
+	    }
+	    std::cout << "|" << std::endl;
     }
     std::cout << edge << std::endl;
 }

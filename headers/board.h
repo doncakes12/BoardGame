@@ -11,16 +11,21 @@
 //Struct for each tile of the board
 //All public  
 struct Tile {	
+    //Might not need occupied cause I can check if the pointer is null or not (if I am not careful with pointers it won't work) but easy enough to keep for now
     bool occupied = 0;
     Piece* piece = nullptr;  //initally empty 
     //pointer to object occupying square
+
+    //constructor
     Tile() {}
 };
 
 class Board {
   private:
-    //May want to make static later so only one instance of board can be altered
+    //May want to make static later so only one instance of board can be altered (easy enough to implement in the actual main loop since there should only be one board anyways)
     Tile* boardSpace[8][8];
+
+    inline bool boundCheck(unsigned int rank, unsigned int file) const {return ((rank < 7)&&(file < 7));}
 
   public:
     //constructor & destructor
@@ -32,8 +37,7 @@ class Board {
     inline void updateOccupied(unsigned int rank, unsigned int file, bool occup) {boardSpace[rank][file]->occupied = occup;}
     
     //accessors
-    inline const Tile& getTile(unsigned int rank, unsigned int file){return *boardSpace[rank][file];}
-    inline const bool boundCheck(unsigned int rank, unsigned int file) {return ((rank < 7)&&(file < 7));}
+    inline Tile& getTile(unsigned int rank, unsigned int file) const {return *boardSpace[rank][file];}
     //currently just prints out the 'checker' board not actual pieces
     const void printBoard();
 };
