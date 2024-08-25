@@ -2,7 +2,9 @@
 #define piece_h
 
 
-#include <utility> //needed for pair (since i am using them as coords for the board)
+#include <utility> //needed for pair (since i am using them as coords for the board) ~~~~ Currently not in use anywhere and I might not need it but here for now
+
+
 //#include <string> //Shouldn't need if I use char instead
 
 class Piece {
@@ -25,17 +27,13 @@ class Piece {
 
 
 //Need to figure out how to move only "forward" since it will be opposite for both players
-
+//using color (char) to determine direction (r => negative rank, b => positive rank) and then can use promoted to allow forward and backward
 class Checker: public Piece {
   private:
     bool promoted = 0;
     //These will maintain curr pos (rank: row as file: column)
     unsigned int rank;
     unsigned int file;
-
-    //helper functions for moving forward and backward. This does the checks required and move<direction> just completes the action.
-    const void moveForward(unsigned int, unsigned int);
-    const void moveBackward(unsigned int, unsigned int);
 
   public:
     //Constructor & deconstructor
